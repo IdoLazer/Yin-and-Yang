@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
-    public PlanetScript attractorPlanet;
+    private PlanetScript attractorPlanet;
+    private GameObject planet;
     private Transform playerTransform;
 
     void Start()
     {
         GetComponent<Rigidbody>().useGravity = false;
-        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
+        planet = GameObject.FindGameObjectWithTag("Planet");
+        attractorPlanet = planet.GetComponent<PlanetScript>();
+
+        // GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
 
         playerTransform = transform;
     }
@@ -21,5 +25,6 @@ public class PlayerScript : MonoBehaviour
         {
             attractorPlanet.Attract(playerTransform);
         }
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
     }
 }
