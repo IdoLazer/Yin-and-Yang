@@ -30,8 +30,10 @@ public class EchoController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightControl))
+        if (Input.GetKeyDown(KeyCode.M))
         {
+            Debug.Log("here");
+
             if (canSendPulse)
                 StartCoroutine(SendPulse());
         }
