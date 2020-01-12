@@ -6,7 +6,7 @@ InputManager:
   serializedVersion: 2
   m_Axes:
   - serializedVersion: 3
-    m_Name: Horizontal
+    m_Name: Player2Y
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: left
@@ -25,6 +25,22 @@ InputManager:
     m_Name: Player2Y
     descriptiveName: 
     descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 1
+    snap: 1
+    invert: 0
+    type: 2
+    axis: 3
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Player1Y
+    descriptiveName: 
+    descriptiveNegativeName: 
     negativeButton: a
     positiveButton: d
     altNegativeButton: 
@@ -38,7 +54,7 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Vertical
+    m_Name: Player2X
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: down
@@ -55,6 +71,22 @@ InputManager:
     joyNum: 0
   - serializedVersion: 3
     m_Name: Player2X
+    descriptiveName: 
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: 
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 3
+    dead: 0.001
+    sensitivity: 1
+    snap: 1
+    invert: 0
+    type: 2
+    axis: 4
+    joyNum: 0
+  - serializedVersion: 3
+    m_Name: Player1X
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: w
@@ -164,7 +196,7 @@ InputManager:
     invert: 0
     type: 1
     axis: 1
-    joyNum: 0
+    joyNum: 1
   - serializedVersion: 3
     m_Name: Mouse ScrollWheel
     descriptiveName: 

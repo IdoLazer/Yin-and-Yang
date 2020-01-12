@@ -32,8 +32,6 @@ public class EchoController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            Debug.Log("here");
-
             if (canSendPulse)
                 StartCoroutine(SendPulse());
         }

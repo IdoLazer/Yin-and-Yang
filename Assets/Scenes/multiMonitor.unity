@@ -337,6 +337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSenX: 250
   mouseSenY: 250
+  rotatSpeen: 5
   walkSpeed: 5
 --- !u!114 &410475776
 MonoBehaviour:
@@ -350,6 +351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfeb2b0feda9864db50088cc5053ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLife: 100
 --- !u!114 &410475777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -734,6 +736,7 @@ MonoBehaviour:
   player1: {fileID: 1923371742}
   player2: {fileID: 410475774}
   numObjects: 2
+  startTime: 0
 --- !u!114 &745443049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -968,6 +971,7 @@ MonoBehaviour:
   player1: {fileID: 1923371742}
   player2: {fileID: 410475774}
   numObjects: 2
+  startTime: 0
 --- !u!114 &1157540992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1166,6 +1170,7 @@ MonoBehaviour:
   player1: {fileID: 1923371742}
   player2: {fileID: 410475774}
   numObjects: 2
+  startTime: 0
 --- !u!1 &1907759936
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,6 +1387,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfeb2b0feda9864db50088cc5053ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLife: 100
 --- !u!114 &1923371749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1396,6 +1402,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bank: {fileID: 516050930}
   waitingTimeBetweenTrailPieces: 0.05
+  player: {fileID: 1923371748}
+  removeLife: 0.2
 --- !u!114 &1923371750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,6 +1418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSenX: 250
   mouseSenY: 250
+  rotatSpeen: 5
   walkSpeed: 10
 --- !u!1 &2088757938
 GameObject:
@@ -1440,6 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fbda08db623c746b7cddf7544df45f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  init: {fileID: 1639668459}
 --- !u!4 &2088757940
 Transform:
   m_ObjectHideFlags: 0

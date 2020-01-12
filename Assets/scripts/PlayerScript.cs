@@ -7,15 +7,15 @@ public class PlayerScript : MonoBehaviour
     private PlanetScript attractorPlanet;
     private GameObject planet;
     private Transform playerTransform;
+    public float playerLife;
 
     void Start()
     {
+        playerLife = 100f;
         GetComponent<Rigidbody>().useGravity = false;
         planet = GameObject.FindGameObjectWithTag("Planet");
         attractorPlanet = planet.GetComponent<PlanetScript>();
-
         // GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
-
         playerTransform = transform;
     }
 

@@ -214,6 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfeb2b0feda9864db50088cc5053ab1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLife: 0
 --- !u!114 &7997242479676816222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -228,4 +229,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSenX: 250
   mouseSenY: 250
+  rotatSpeen: 5
   walkSpeed: 10

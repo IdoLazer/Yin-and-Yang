@@ -6,6 +6,7 @@ public class firstPersonControl : MonoBehaviour
 {
     public float mouseSenX = 250f;
     public float mouseSenY = 250f;
+    public float rotatSpeen = 5;
     public float walkSpeed;
     Transform cameraT;
     float verLookRotation;
@@ -21,14 +22,15 @@ public class firstPersonControl : MonoBehaviour
     {
         if (tag == "Player1")
         {
-            transform.Rotate(Vector3.up * Input.GetAxis("Player2Y"));
+            transform.Rotate(rotatSpeen * Vector3.up * Input.GetAxis("Player1Y"));
             // if we want the camera to move
             //verLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSenY;
             //verLookRotation = Mathf.Clamp(verLookRotation, -30, 30);
             //cameraT.localEulerAngles = Vector3.left * verLookRotation;
-            if (Input.GetAxis("Player2X") <= Mathf.Abs(1)) 
+            Debug.Log(Input.GetAxis("Player1X"));
+            if (Input.GetAxis("Player1X") <= 1) 
             { 
-                Vector3 moveDir = new Vector3(0, 0, -Input.GetAxis("Player2X")).normalized;
+                Vector3 moveDir = new Vector3(0, 0, -Input.GetAxis("Player1X")).normalized;
                 Vector3 targetMoveAmount = moveDir * walkSpeed;
                 moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVel, .15f);
             }
@@ -36,14 +38,21 @@ public class firstPersonControl : MonoBehaviour
         }
         if (tag == "Player2")
         {
-            transform.Rotate(Vector3.up * Input.GetAxis("Horizontal"));
+            transform.Rotate(rotatSpeen * Vector3.up * Input.GetAxis("Player2Y"));
             // if we want the camera to move
             //verLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSenY;
             //verLookRotation = Mathf.Clamp(verLookRotation, -30, 30);
             //cameraT.localEulerAngles = Vector3.left * verLookRotation;
-            if (Input.GetAxis("Vertical") <= Mathf.Abs(1))
+            float axis = Input.GetAxis("Player2X");
+            Debug.Log(axis);
+            if (Mathf.Abs(axis) <= 0.1f)
             {
-                Vector3 moveDir = new Vector3(0, 0, Input.GetAxis("Vertical")).normalized;
+                axis = 0f;
+            }
+
+            if (axis <= 1)
+            {
+                Vector3 moveDir = new Vector3(0, 0, axis).normalized;
                 Vector3 targetMoveAmount = moveDir * walkSpeed;
                 moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVel, .15f);
             }
