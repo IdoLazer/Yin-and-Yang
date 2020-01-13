@@ -24,11 +24,8 @@ public class GameGui : MonoBehaviour
         pulseTime = startTime;
         TrailTime = startTime;
 
-        player1Cam = GameObject.FindGameObjectWithTag("Player1").GetComponent<Camera>();
-        player2Cam = GameObject.FindGameObjectWithTag("Player2").GetComponent<Camera>();
-
-        Text text1 = GameObject.FindGameObjectWithTag("Player1").GetComponentInChildren<Text>();
-        Text text2 = GameObject.FindGameObjectWithTag("Player2").GetComponentInChildren<Text>();
+        Text text1 = GameObject.FindGameObjectWithTag("playerOneWrapper").GetComponentInChildren<Text>();
+        Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
 
         text1.text = "What are you looking for?";
         text2.text = "What are you looking for?";
@@ -37,7 +34,7 @@ public class GameGui : MonoBehaviour
 
     public void blackPlayerRiminder()
     {
-        Text text2 = GameObject.FindGameObjectWithTag("Player2").GetComponentInChildren<Text>();
+        Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
 
         text2.text = "Try pressing SpaceBar to Draw a Trail";
 
@@ -45,7 +42,7 @@ public class GameGui : MonoBehaviour
 
     public void blackWhiteRiminder()
     {
-        Text text2 = GameObject.FindGameObjectWithTag("Player2").GetComponentInChildren<Text>();
+        Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
 
         text2.text = "Try pressing M to do a pulse";
 
@@ -53,8 +50,8 @@ public class GameGui : MonoBehaviour
 
     public void win()
     {
-        Text text1 = GameObject.FindGameObjectWithTag("Player1").GetComponentInChildren<Text>();
-        Text text2 = GameObject.FindGameObjectWithTag("Player2").GetComponentInChildren<Text>();
+        Text text1 = GameObject.FindGameObjectWithTag("playerOneWrapper").GetComponentInChildren<Text>();
+        Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
 
         text1.text = "win";
         text2.text = "win";
@@ -62,8 +59,8 @@ public class GameGui : MonoBehaviour
 
     public void lose()
     {
-        Text text1 = GameObject.FindGameObjectWithTag("Player1").GetComponentInChildren<Text>();
-        Text text2 = GameObject.FindGameObjectWithTag("Player2").GetComponentInChildren<Text>();
+        Text text1 = GameObject.FindGameObjectWithTag("playerOneWrapper").GetComponentInChildren<Text>();
+        Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
 
         text1.text = "lose";
         text2.text = "lose";
