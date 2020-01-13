@@ -35,7 +35,6 @@ public class TrailController : MonoBehaviour
         {
             bank.InstantiateTrailPiece(transform.position);
             player.playerLife -= removeLife;
-            Debug.Log(player.playerLife);
             yield return new WaitForSeconds(waitingTimeBetweenTrailPieces);
         }
     }

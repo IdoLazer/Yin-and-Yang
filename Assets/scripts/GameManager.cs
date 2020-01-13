@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class GameManager : MonoBehaviour
@@ -20,10 +21,14 @@ public class GameManager : MonoBehaviour
     private GameObject player1;
     private GameObject player2;
     private float distanceBetween;
+    private GameGui myGui;
+    private DisplayScript display;
     
     void Start()
     {
         state = State.Start;
+        display = GetComponent<DisplayScript>();
+        display.StartDisplay();
     }
 
     // Update is called once per frame
@@ -58,19 +63,17 @@ public class GameManager : MonoBehaviour
                 Debug.Log(distanceBetween);
                 if (distanceBetween < 7)
                 {
-                    // myGui.winEffect();   
+                    myGui.win();   
                     state = State.Win;
                 }
 
                 break;
             case State.Win:
                 //myGui.winScene();
-                Debug.Log("win");
                 break;
 
             case State.Lose:
-                // myGui.lose()
-                Debug.Log("Lose");
+                myGui.lose();
                 break;
 
         }
@@ -82,6 +85,9 @@ public class GameManager : MonoBehaviour
         init.loadPlayers();
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
+        myGui = GetComponent<GameGui>();
+        myGui.guiSetUp();
+
 
     }
 

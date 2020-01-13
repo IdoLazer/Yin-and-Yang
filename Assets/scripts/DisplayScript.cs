@@ -7,7 +7,7 @@ Run this script only once (!) at the start of the scene.
 public class DisplayScript : MonoBehaviour
 {
     Camera[] myCams = new Camera[2];
-    void Start()
+    public void StartDisplay()
     {
         // === NOTE: MultiMonitor display works only in build, not in Unity editor === 
         Debug.Log("displays connected: " + Display.displays.Length
