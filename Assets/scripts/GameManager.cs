@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    private enum State
+    public enum State
     {
         Start,
         Game,
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
         {
             case State.Start:
 
-                //myGui.showGui();
+                //myGui.showStart();
                 // this case will be in charge of pulling up the opening scene and when we press start in the scene it will change 
                 // the state = State.Game; which will start the game
                 state = State.Game;
@@ -118,5 +118,10 @@ public class GameManager : MonoBehaviour
     {
 
         SceneManager.LoadScene("OpeningScene");
+    }
+
+    public State getState()
+    {
+        return state;
     }
 }

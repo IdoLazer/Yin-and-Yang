@@ -8,7 +8,7 @@ public class TrailController : MonoBehaviour
     public TrailPieceBank bank;
     public float waitingTimeBetweenTrailPieces = 0.2f;
     Coroutine leaveTrailCoroutine;
-    private PlayerScript player;
+    public PlayerScript player;
     public float removeLife = 0.2f;
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class TrailController : MonoBehaviour
         {
             bank.InstantiateTrailPiece(transform.position);
             player.playerLife -= removeLife;
-            //Debug.Log(player.playerLife);
+            Debug.Log(player.playerLife);
             yield return new WaitForSeconds(waitingTimeBetweenTrailPieces);
         }
     }

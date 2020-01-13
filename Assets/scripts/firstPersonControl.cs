@@ -27,10 +27,14 @@ public class firstPersonControl : MonoBehaviour
             //verLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSenY;
             //verLookRotation = Mathf.Clamp(verLookRotation, -30, 30);
             //cameraT.localEulerAngles = Vector3.left * verLookRotation;
-            Debug.Log(Input.GetAxis("Player1X"));
-            if (Input.GetAxis("Player1X") <= 1) 
+            float axis = Input.GetAxis("Player1X");
+            if (Mathf.Abs(axis) <= 0.1f)
+            {
+                axis = 0f;
+            }
+            if (axis <= 1) 
             { 
-                Vector3 moveDir = new Vector3(0, 0, -Input.GetAxis("Player1X")).normalized;
+                Vector3 moveDir = new Vector3(0, 0, -axis).normalized;
                 Vector3 targetMoveAmount = moveDir * walkSpeed;
                 moveAmount = Vector3.SmoothDamp(moveAmount, targetMoveAmount, ref smoothMoveVel, .15f);
             }
@@ -44,7 +48,6 @@ public class firstPersonControl : MonoBehaviour
             //verLookRotation = Mathf.Clamp(verLookRotation, -30, 30);
             //cameraT.localEulerAngles = Vector3.left * verLookRotation;
             float axis = Input.GetAxis("Player2X");
-            Debug.Log(axis);
             if (Mathf.Abs(axis) <= 0.1f)
             {
                 axis = 0f;
