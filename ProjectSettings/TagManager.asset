@@ -9,6 +9,7 @@ TagManager:
   - Planet
   - playerTwoWrapper
   - playerOneWrapper
+  - OpeningScene
   layers:
   - Default
   - TransparentFX
