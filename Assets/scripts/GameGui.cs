@@ -12,14 +12,15 @@ public class GameGui : MonoBehaviour
     private float pulseTime;
     private float TrailTime;
 
-    private Text text1;
-    private Text text2;
+    public GameObject Win;
+    public GameObject Lose;
 
     public GameObject VCOpening;
 
     public void showStart()
     {
         VCOpening.SetActive(true);
+       
 
     }
 
@@ -28,6 +29,10 @@ public class GameGui : MonoBehaviour
     {
 
         VCOpening.SetActive(false);
+        Win.SetActive(false);
+        Lose.SetActive(false);
+
+
 
         //Text text1 = GameObject.FindGameObjectWithTag("playerOneWrapper").GetComponentInChildren<Text>();
         //Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
@@ -35,39 +40,17 @@ public class GameGui : MonoBehaviour
         //text1.text = "What are you looking for?";
         //text2.text = "What are you looking for?";
 
-     }
-
-    public void blackPlayerRiminder()
-    {
-        Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
-
-        text2.text = "Try pressing SpaceBar to Draw a Trail";
-
-    }
-
-    public void blackWhiteRiminder()
-    {
-        Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
-
-        text2.text = "Try pressing M to do a pulse";
-
     }
 
     public void win()
     {
-        Text text1 = GameObject.FindGameObjectWithTag("playerOneWrapper").GetComponentInChildren<Text>();
-        Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
-
-        text1.text = "win";
-        text2.text = "win";
+        Win.SetActive(true);
+        Debug.Log("win");
     }
 
     public void lose()
     {
-        Text text1 = GameObject.FindGameObjectWithTag("playerOneWrapper").GetComponentInChildren<Text>();
-        Text text2 = GameObject.FindGameObjectWithTag("playerTwoWrapper").GetComponentInChildren<Text>();
-
-        text1.text = "lose";
-        text2.text = "lose";
+        Lose.SetActive(true);
+        Debug.Log("Lose");
     }
 }

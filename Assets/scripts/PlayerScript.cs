@@ -27,4 +27,10 @@ public class PlayerScript : MonoBehaviour
         }
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
     }
+
+    public void restart()
+    {
+        playerLife = 100f;
+
+    }
 }

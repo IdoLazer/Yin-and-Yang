@@ -23,7 +23,12 @@ public class GameManager : MonoBehaviour
     private float distanceBetween;
     private GameGui myGui;
     private DisplayScript display;
-    
+
+    private bool playerOneReady = false;
+    private bool playerTwoReady = false;
+
+
+
     void Start()
     {
         state = State.Start;
@@ -41,6 +46,7 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case State.Start:
+
                 PressToStartGame();
                 break;
 
@@ -66,11 +72,21 @@ public class GameManager : MonoBehaviour
 
                 break;
             case State.Win:
-                //myGui.winScene();
+                myGui.win();
+                clearPieces();
+                player1.GetComponent<PlayerScript>().restart();
+                myGui.showStart();
+                state = State.Start;
+
                 break;
 
             case State.Lose:
                 myGui.lose();
+                clearPieces();
+                player1.GetComponent<PlayerScript>().restart();
+                myGui.showStart();
+
+                state = State.Start;
                 break;
 
         }
@@ -87,13 +103,21 @@ public class GameManager : MonoBehaviour
 
     public void PressToStartGame()
     {
-        if (Input.anyKey)
+        if (Input.GetKey(KeyCode.S))
         {
+            playerOneReady = true;
+        }
 
+        if (Input.GetKey(KeyCode.T))
+        {
+            playerTwoReady = true;
+        }
+
+        if ((playerOneReady & playerTwoReady))
+        {
             state = State.Game;
             myGui.guiSetUp();
             StartGame();
-
         }
     }
 
@@ -126,15 +150,19 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void LoadMenu()
-    {
-
-        SceneManager.LoadScene("OpeningScene");
-    }
-
     public State getState()
     {
         return state;
+    }
+
+    public void clearPieces()
+    {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("Piece");
+
+        for (var i = 0; i < gameObjects.Length; i++)
+        {
+            Destroy(gameObjects[i]);
+        }
     }
 
 

@@ -10,6 +10,9 @@ TagManager:
   - playerTwoWrapper
   - playerOneWrapper
   - OpeningScene
+  - win
+  - lose
+  - Piece
   layers:
   - Default
   - TransparentFX
@@ -26,7 +29,7 @@ TagManager:
   - P2Planet
   - P1Cam
   - P2Cam
-  - 
+  - StartCam
   - 
   - 
   - 

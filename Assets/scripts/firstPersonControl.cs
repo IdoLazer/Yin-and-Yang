@@ -22,12 +22,12 @@ public class firstPersonControl : MonoBehaviour
     {
         if (tag == "Player1")
         {
-            transform.Rotate(rotatSpeen * Vector3.up * Input.GetAxis("Player1Y"));
+            transform.Rotate(rotatSpeen * Vector3.up * Input.GetAxis("Player1X"));
             // if we want the camera to move
             //verLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSenY;
             //verLookRotation = Mathf.Clamp(verLookRotation, -30, 30);
             //cameraT.localEulerAngles = Vector3.left * verLookRotation;
-            float axis = Input.GetAxis("Player1X");
+            float axis = Input.GetAxis("Player1Y");
             if (Mathf.Abs(axis) <= 0.1f)
             {
                 axis = 0f;
@@ -42,12 +42,12 @@ public class firstPersonControl : MonoBehaviour
         }
         if (tag == "Player2")
         {
-            transform.Rotate(rotatSpeen * Vector3.up * Input.GetAxis("Player2Y"));
+            transform.Rotate(rotatSpeen * Vector3.up * Input.GetAxis("Player2X"));
             // if we want the camera to move
             //verLookRotation += Input.GetAxis("Mouse Y") * Time.deltaTime * mouseSenY;
             //verLookRotation = Mathf.Clamp(verLookRotation, -30, 30);
             //cameraT.localEulerAngles = Vector3.left * verLookRotation;
-            float axis = Input.GetAxis("Player2X");
+            float axis = Input.GetAxis("Player2Y");
             if (Mathf.Abs(axis) <= 0.1f)
             {
                 axis = 0f;

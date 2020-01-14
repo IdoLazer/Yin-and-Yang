@@ -6,10 +6,12 @@ using UnityEngine;
 public class TrailController : MonoBehaviour
 {
     public TrailPieceBank bank;
-    public float waitingTimeBetweenTrailPieces = 0.2f;
+    public float waitingTimeBetweenTrailPieces = 0.3f;
     Coroutine leaveTrailCoroutine;
     public PlayerScript player;
-    public float removeLife = 0.2f;
+    public float removeLife = 1.5f;
+
+    private bool startedTrail = false;
 
     // Update is called once per frame
 
@@ -18,14 +20,21 @@ public class TrailController : MonoBehaviour
         if (!bank)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) || Input.GetButton("Fire2"))
         {
-            leaveTrailCoroutine = StartCoroutine(LeaveTrail());
+            if (!startedTrail)
+            {
+                startedTrail = true;
+                leaveTrailCoroutine = StartCoroutine(LeaveTrail());
+            }
         }
-
-        if (Input.GetKeyUp(KeyCode.Space))
+        else
         {
-            StopCoroutine(leaveTrailCoroutine);
+            if (startedTrail)
+            {
+                startedTrail = false;
+                StopCoroutine(leaveTrailCoroutine);
+            }
         }
     }
 
@@ -35,6 +44,7 @@ public class TrailController : MonoBehaviour
         {
             bank.InstantiateTrailPiece(transform.position);
             player.playerLife -= removeLife;
+            Debug.Log(player.playerLife);
             yield return new WaitForSeconds(waitingTimeBetweenTrailPieces);
         }
     }
