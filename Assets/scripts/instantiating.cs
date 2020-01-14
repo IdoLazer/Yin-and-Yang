@@ -14,6 +14,7 @@ public class instantiating : MonoBehaviour
     {
         Vector3 where1 = Random.onUnitSphere;
         Vector3 where2 = Random.onUnitSphere;
+
         Vector3 onPlanet1 = where1 * GetComponent<SphereCollider>().radius * transform.localScale.x;
         Vector3 onPlanet2 = where2 * GetComponent<SphereCollider>().radius * transform.localScale.x;
 
