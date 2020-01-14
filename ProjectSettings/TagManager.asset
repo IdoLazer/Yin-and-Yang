@@ -21,10 +21,10 @@ TagManager:
   - Trail
   - PlayerOne
   - PlayerTwo
-  - PlanetOne
-  - PlanetTwo
-  - 
-  - 
+  - P1Planet
+  - P2Planet
+  - P1Cam
+  - P2Cam
   - 
   - 
   - 

@@ -20,6 +20,5 @@ public class PlayerFallow : MonoBehaviour
         //Vector3 newpos = Player.position + _cameraOffSet;
         //transform.position = Vector3.Slerp(transform.position, newpos, SmoothFactor);
         transform.position = Player.transform.position + _cameraOffSet;
-
     }
 }
