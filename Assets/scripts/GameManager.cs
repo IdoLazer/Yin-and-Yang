@@ -27,8 +27,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         state = State.Start;
+        
         display = GetComponent<DisplayScript>();
         display.StartDisplay();
+        
+        myGui = GetComponent<GameGui>();
+        myGui.showStart();
     }
 
     // Update is called once per frame
@@ -37,13 +41,7 @@ public class GameManager : MonoBehaviour
         switch (state)
         {
             case State.Start:
-
-                //myGui.showStart();
-                // this case will be in charge of pulling up the opening scene and when we press start in the scene it will change 
-                // the state = State.Game; which will start the game
-                state = State.Game;
-                StartGame();
-
+                PressToStartGame();
                 break;
 
             case State.Game:
@@ -60,7 +58,6 @@ public class GameManager : MonoBehaviour
                 }
                
                 distanceBetween = Vector3.Distance(player1.transform.position, player2.transform.position);
-                Debug.Log(distanceBetween);
                 if (distanceBetween < 7)
                 {
                     myGui.win();   
@@ -85,10 +82,19 @@ public class GameManager : MonoBehaviour
         init.loadPlayers();
         player1 = GameObject.FindGameObjectWithTag("Player1");
         player2 = GameObject.FindGameObjectWithTag("Player2");
-        myGui = GetComponent<GameGui>();
-        myGui.guiSetUp();
 
+    }
 
+    public void PressToStartGame()
+    {
+        if (Input.anyKey)
+        {
+
+            state = State.Game;
+            myGui.guiSetUp();
+            StartGame();
+
+        }
     }
 
     void shouldPaue()
@@ -130,4 +136,6 @@ public class GameManager : MonoBehaviour
     {
         return state;
     }
+
+
 }
